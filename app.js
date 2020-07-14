@@ -18,14 +18,13 @@ switch (comando) {
         // console.log('Listar tareas ');
         let listado = porHacer.getListado();
 
+        console.log("=====================POR HACER========================".red);
         for (let tarea of listado) 
-        {
-            console.log("=====================POR HACER========================".red);
-            console.log(tarea.descripcion);
-            console.log('estado', tarea.completado);
-            console.log("=====================POR HACER========================".red);
+        {   
+            console.log(`descripcion: ${tarea.descripcion} | estado : ${tarea.completado}`);
             
         }
+        console.log("======================================================".red);
         break;
 
     case 'actualizar':
@@ -42,7 +41,14 @@ switch (comando) {
         console.log(borrar);
         break;
     
-
+    case 'buscar-estado':
+        console.log('Buscar tareas por estado ');
+        let filtro = porHacer.setBuscarEstado(argv.completado);
+        console.log(filtro);
+        break;
+        
+    
+    
     default:
         console.log('Comando no existe');
         break;

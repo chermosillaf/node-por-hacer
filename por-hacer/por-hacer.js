@@ -79,6 +79,17 @@ const setBorrar = (descripcion) => {
     return encontrado;
 }
 
+const setBuscarEstado = (completado) => {
+    
+    cargarData();
+
+    const listado = listadoPorHacer.filter(tarea => {
+        return (tarea.completado === completado ) 
+    })
+
+    return listado;
+}
+
 const cargarData = () => {
     
     try 
@@ -120,4 +131,5 @@ module.exports = {
     ,cargarData
     ,setActualizar
     ,setBorrar
+    ,setBuscarEstado
 }
